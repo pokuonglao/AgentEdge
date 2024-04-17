@@ -1,6 +1,6 @@
 import '../Styles/Pages/About.css';
 import Footer from '../Components/Footer';
-import profileImage from '../../public/profile.jpf';
+import profileImage from '../../public/profile.jpg';
 
 
 const Pokuong = () => {
