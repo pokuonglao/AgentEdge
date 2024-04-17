@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.Entities;
 
 namespace WebApplication1
 {
@@ -10,5 +11,6 @@ namespace WebApplication1
         }
 
         public DbSet<Clients> clients { get; set; } // DbSet representing the Clients table
+        public DbSet<Accounts> accounts { get; set; } 
     }
 }

@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using WebApplication1;
+using WebApplication1.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQLConnection"));
+});
+
+builder.Services.AddScoped(typeof(IClientsRepository<>), typeof(SQLClientsRepository<>));
+builder.Services.AddScoped(typeof(IAccountsRepository<>), typeof(SQLAccountsRepository<>));
+
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", builder =>
+    {
+        builder.WithOrigins("http://localhost:5173") // Replace with your frontend URL
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
 });
 
 // Add services to the container.
@@ -31,7 +47,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+app.UseCors("AllowLocalhost"); // Apply CORS policy
+
 app.UseAuthorization();
+
+
+app.UseEndpoints(endpoints =>
+{
+    _=endpoints.MapControllers();
+});
 
 app.MapControllers();
 

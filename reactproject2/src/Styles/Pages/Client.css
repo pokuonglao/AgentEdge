@@ -1,0 +1,49 @@
+.client-container {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.client-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .client-table th,
+    .client-table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .client-table th {
+        background-color: #f2f2f2;
+    }
+
+    .client-table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .client-table tbody tr:hover {
+        background-color: #ddd;
+    }
+
+    .client-table input[type="text"],
+    .client-table select {
+        margin-right: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .client-table button {
+        padding: 5px 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .client-table button:hover {
+            background-color: #45a049;
+        }
