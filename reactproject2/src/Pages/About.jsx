@@ -1,5 +1,6 @@
 import '../Styles/Pages/About.css';
 import Footer from '../Components/Footer';
+import profileImage from '../../public/profile.jpf';
 
 
 const Pokuong = () => {
@@ -28,7 +29,7 @@ const Pokuong = () => {
                     <div className="content split aligntop">
                         <div className="left">
                             <div id="user-image">
-                                <img src="../../public/profile.jpg" alt="pokuong lao photo" className="fit" />
+                                <img src={profileImage} alt="pokuong lao photo" className="fit" />
                             </div>
                             <address id="user-contact">
                                 <div className="phone">(626) 272-8808</div>
