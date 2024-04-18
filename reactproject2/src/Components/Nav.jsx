@@ -1,6 +1,6 @@
 import { Outlet,useLocation,Link } from "react-router-dom";
 import PropTypes from 'prop-types';
-
+import Logo from '../../public/logo.png';
 import '../Styles/Components/Nav.css';
 
 const Nav = ({ isAuthenticated }) => {
@@ -11,7 +11,7 @@ const Nav = ({ isAuthenticated }) => {
         <main>
             <header id="header" data-page={currentPage}>
                 <nav className="wrapper">
-                    <a id="logo" href="/">Pokuong Lao</a>
+                    <a id="logo" href="/"><img src={Logo} alt="pokuong lao photo" className="fit" /></a>
                     <span className="mobile_menu"></span>
                     <ul className="menu">
                         <li>
