@@ -11,7 +11,7 @@ const Nav = ({ isAuthenticated }) => {
         <main>
             <header id="header" data-page={currentPage}>
                 <nav className="wrapper">
-                    <a id="logo" href="/"><img src={Logo} alt="pokuong lao photo" className="fit" /></a>
+                    <a id="logo" href="/">Pokuong Lao</a>
                     <span className="mobile_menu"></span>
                     <ul className="menu">
                         <li>
