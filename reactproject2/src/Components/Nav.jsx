@@ -1,6 +1,5 @@
 import { Outlet,useLocation,Link } from "react-router-dom";
 import PropTypes from 'prop-types';
-import Logo from '../../public/logo.png';
 import '../Styles/Components/Nav.css';
 
 const Nav = ({ isAuthenticated }) => {
