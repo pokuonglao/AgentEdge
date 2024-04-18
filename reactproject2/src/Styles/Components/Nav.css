@@ -11,11 +11,11 @@
 }
 
     /* Apply black background color if current page is /login */
-    #header[data-page="/login"] {
+    #header[data-page="/login/"] {
         background-color: black;
     }
 
-    #header[data-page="/client"] {
+    #header[data-page="/client/"] {
         background-color: black;
     }
 

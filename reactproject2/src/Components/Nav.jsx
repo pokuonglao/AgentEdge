@@ -5,11 +5,11 @@ import '../Styles/Components/Nav.css';
 
 const Nav = ({ isAuthenticated }) => {
     let location = useLocation();
-    const isLoginPage = location.pathname;
+    const currentPage = location.pathname;
 
     return (
         <main>
-            <header id="header" data-page={isLoginPage}>
+            <header id="header" data-page={currentPage}>
                 <nav className="wrapper">
                     <a id="logo" href="/">Pokuong Lao</a>
                     <span className="mobile_menu"></span>
