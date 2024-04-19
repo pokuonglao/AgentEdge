@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalhost", builder =>
     {
-        builder.WithOrigins("http://localhost:5173") // Replace with your frontend URL
+        builder.WithOrigins("https://master.dfib8zt44au7z.amplifyapp.com/") // Replace with your frontend URL
                .AllowAnyHeader()
                .AllowAnyMethod();
     });

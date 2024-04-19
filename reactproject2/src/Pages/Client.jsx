@@ -20,7 +20,7 @@ function Clients() {
     }, [pageNumber, pageSize]);
 
     const fetchTotalPages = (size) => {
-        fetch(`https://localhost:7094/Client/getTotalPages?pageSize=${size}`)
+        fetch(`ec2-54-176-5-13.us-west-1.compute.amazonaws.com/Client/getTotalPages?pageSize=${size}`)
             .then(response => response.json())
             .then(data => {
                 setTotalPages(data.totalPages);
