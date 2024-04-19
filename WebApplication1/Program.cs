@@ -21,13 +21,17 @@ builder.Services.AddScoped(typeof(IAccountsRepository<>), typeof(SQLAccountsRepo
 // Add CORS policy
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocalhost", builder =>
+    options.AddPolicy("AllowFrontendAndLocalhost", builder =>
     {
-        builder.WithOrigins("https://master.dfib8zt44au7z.amplifyapp.com/") // Replace with your frontend URL
-               .AllowAnyHeader()
-               .AllowAnyMethod();
+        builder.WithOrigins(
+            "https://master.dfib8zt44au7z.amplifyapp.com", // Your frontend URL on AWS Amplify
+            "http://localhost:5173" // Your localhost URL with port
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod();
     });
 });
+
 
 // Add services to the container.
 
