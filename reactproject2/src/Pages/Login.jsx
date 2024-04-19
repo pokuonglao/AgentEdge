@@ -24,7 +24,7 @@ const LoginForm = ({ setIsAuthenticated }) => {
     };
 
     const authenticate = (username, password) => {
-        fetch('https://localhost:5270/Accounts/login', {
+        fetch('https://localhost:7094/Accounts/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
