@@ -20,7 +20,7 @@ function Clients() {
     }, [pageNumber, pageSize]);
 
     const fetchTotalPages = (size) => {
-        fetch(`https://localhost:7094/Client/getTotalPages?pageSize=${size}`)
+        fetch(`https://localhost:5270/Client/getTotalPages?pageSize=${size}`)
             .then(response => response.json())
             .then(data => {
                 setTotalPages(data.totalPages);
