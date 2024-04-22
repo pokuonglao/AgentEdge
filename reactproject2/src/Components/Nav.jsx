@@ -14,13 +14,13 @@ const Nav = ({ isAuthenticated }) => {
                     <span className="mobile_menu"></span>
                     <ul className="menu">
                         <li>
-                            <a data-anchor="pokuong" href="/about">About
+                            <a data-anchor="pokuong" href="/about/">About
                                 <span></span>
                             </a>
                         </li>
                         {/* Other navigation items */}
                         <li className="private">
-                            <a data-anchor="private" href="/login">
+                            <a data-anchor="private" href="/login/">
                                 Login
                                 <span></span>
                             </a>
