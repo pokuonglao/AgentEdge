@@ -8,13 +8,13 @@ import Client from './Pages/Client.jsx';
 function App2({ isAuthenticated, setIsAuthenticated }) {
     const routes = [
         { path: "/", element: <Home /> },
-        { path: "/about", element: <About /> },
-        { path: "/login", element: <Login setIsAuthenticated={setIsAuthenticated} /> },
+        { path: "/about/", element: <About /> },
+        { path: "/login/", element: <Login setIsAuthenticated={setIsAuthenticated} /> },
     ];
 
     // If user is authenticated, add the Client route
     if (isAuthenticated) {
-        routes.push({ path: "/client", element: <Client /> });
+        routes.push({ path: "/client/", element: <Client /> });
     }
 
     // Use the routes array with useRoutes hook
