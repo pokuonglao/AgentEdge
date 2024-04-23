@@ -24,7 +24,7 @@ const LoginForm = ({ setIsAuthenticated }) => {
     };
 
     const authenticate = (username, password) => {
-        fetch('https://https://d129impgfwqu0k.cloudfront.net/Accounts/login', {
+        fetch('https://d129impgfwqu0k.cloudfront.net/Accounts/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
