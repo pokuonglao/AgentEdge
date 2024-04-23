@@ -5,11 +5,6 @@ using WebApplication1.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//// Add services to the container.
-//builder.Services.AddScoped<SQLRepository>(); // AddScoped or appropriate lifetime
-//// Add services to the container.
-//builder.Services.AddScoped<SQLRepoCommunities>(); // AddScoped or appropriate lifetime
-
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQLConnection"));
@@ -21,11 +16,13 @@ builder.Services.AddScoped(typeof(IAccountsRepository<>), typeof(SQLAccountsRepo
 // Add CORS policy
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontendAndLocalhost", builder =>
+    options.AddPolicy("AllowFrontendAndLocalhost", policy =>
     {
-        builder.WithOrigins(
+        policy.WithOrigins(
             "https://master.dfib8zt44au7z.amplifyapp.com", // Your frontend URL on AWS Amplify
-            "http://localhost:5173" // Your localhost URL with port
+            "http://localhost:5173",
+            "http://localhost:5000",
+            "https://pokuonglao.com"// Your localhost URL with port
         )
         .AllowAnyHeader()
         .AllowAnyMethod();
@@ -52,7 +49,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseRouting();
-app.UseCors("AllowLocalhost"); // Apply CORS policy
+app.UseCors("AllowFrontendAndLocalhost"); // Apply CORS policy
 
 app.UseAuthorization();
 
