@@ -24,7 +24,7 @@ const LoginForm = ({ setIsAuthenticated }) => {
     };
 
     const authenticate = (username, password) => {
-        fetch('https://ec2-54-183-197-75.us-west-1.compute.amazonaws.com/Accounts/login', {
+        fetch('http://ec2-54-183-197-75.us-west-1.compute.amazonaws.com/Accounts/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
