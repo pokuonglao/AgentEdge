@@ -24,8 +24,8 @@ function Clients() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ size })
+            }
+            
         })
             .then(response => response.json())
             .then(data => {
@@ -39,8 +39,8 @@ function Clients() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ page, size })
+            }
+ 
         })
             .then(response => response.json())
             .then(data => {
@@ -54,8 +54,8 @@ function Clients() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({  })
+            }
+
         })
             .then(response => response.json())
             .then(data => {
