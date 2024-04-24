@@ -10,6 +10,7 @@ function Clients() {
     const [searchKeyword, setSearchKeyword] = useState('');
     const [clients, setClients] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         // Fetch total pages on component mount
@@ -22,25 +23,31 @@ function Clients() {
     }, [pageNumber, pageSize]);
 
     const fetchTotalPages = (size) => {
-        setLoading(true); // Set loading state to true
+        setLoading(true);
         fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getTotalPages?pageSize=${size}`)
             .then(response => response.json())
             .then(data => {
                 setTotalPages(data.totalPages);
             })
-            .catch(error => console.error('Error fetching total pages:', error))
-            .finally(() => setLoading(false)); // Set loading state to false
+            .catch(error => {
+                console.error('Error fetching total pages:', error);
+                setError('Failed to fetch total pages');
+            })
+            .finally(() => setLoading(false));
     };
 
     const fetchClients = (page, size) => {
-        setLoading(true); // Set loading state to true
+        setLoading(true);
         fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getAllClients?pageNumber=${page}&pageSize=${size}`)
             .then(response => response.json())
             .then(data => {
                 setClients(data);
             })
-            .catch(error => console.error('Error fetching clients:', error))
-            .finally(() => setLoading(false)); // Set loading state to false
+            .catch(error => {
+                console.error('Error fetching clients:', error);
+                setError('Failed to fetch clients');
+            })
+            .finally(() => setLoading(false));
     };
 
     const searchClients = () => {
@@ -55,16 +62,18 @@ function Clients() {
             .then(data => {
                 setClients(data);
             })
-            .catch(error => console.error('Error searching clients:', error));
+            .catch(error => {
+                console.error('Error searching clients:', error);
+                setError('Failed to search clients');
+            });
     };
 
     return (
         <div className="client-container">
             <h2>Clients</h2>
             <div>
-                {/* Loading spinner or message */}
                 {loading && <LoadingSpinner />}
-                {/* Your existing JSX */}
+                {error && <p>Error: {error}</p>}
                 Items per page:
                 <select value={pageSize} onChange={(e) => setPageSize(parseInt(e.target.value))}>
                     <option value={5}>5</option>
