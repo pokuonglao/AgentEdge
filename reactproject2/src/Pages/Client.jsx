@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/Pages/Client.css';
-import LoadingSpinner from '../components/LoadingSpinner';
+import LoadingSpinner from '../Components/LoadingSpinner';
 
 
 function Clients() {
