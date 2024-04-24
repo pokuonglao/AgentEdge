@@ -14,7 +14,7 @@ function App2({ isAuthenticated, setIsAuthenticated }) {
 
     // If user is authenticated, add the Client route
     if (isAuthenticated) {
-        routes.push({ path: "/client/", element: <Client /> });
+        routes.push({ path: "/client", element: <Client /> });
     }
 
     // Use the routes array with useRoutes hook
