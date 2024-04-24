@@ -51,13 +51,7 @@ function Clients() {
     };
 
     const searchClients = () => {
-        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/search?keyword=${searchKeyword}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-
-        })
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/search?keyword=${searchKeyword}`)
             .then(response => response.json())
             .then(data => {
                 setClients(data);

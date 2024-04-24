@@ -22,7 +22,7 @@ builder.Services.AddCors(options =>
             "https://master.dfib8zt44au7z.amplifyapp.com", // Your frontend URL on AWS Amplify
             "http://localhost:5173",
             "http://localhost:5000",
-            "https://pokuonglao.com"// Your localhost URL with port
+            "https://www.pokuonglao.com"// Your localhost URL with port
         )
         .AllowAnyHeader()
         .AllowAnyMethod();

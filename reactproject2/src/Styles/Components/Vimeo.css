@@ -108,3 +108,20 @@
     #bgvid.hide {
         opacity: 0;
     }
+
+/* Add media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .section .wrapper {
+        padding: 30px; /* Reduce padding */
+    }
+
+    #welcome.section .wrapper #company-name {
+        font-size: 24pt; /* Decrease font size */
+    }
+
+    #welcome.section .wrapper #key-phrases {
+        margin-top: 20px; /* Reduce margin top */
+        font-size: 14pt; /* Decrease font size */
+    }
+}
+

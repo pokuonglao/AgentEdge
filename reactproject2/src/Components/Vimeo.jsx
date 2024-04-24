@@ -27,24 +27,10 @@ const Vimeo = () => {
                     <div>Marathon Runner</div>
                 </div>
             </div>
-            <div id="bgvid" className={`video-container ${showVideo ? 'visible' : ''}`}>
-                {/*<iframe*/}
-                {/*    tabIndex="-1"*/}
-                {/*    title="Pokuonglao Splash Video"*/}
-                {/*    src="https://player.vimeo.com/video/875746351?background=1&autoplay=1&loop=1&byline=0&title=0"*/}
-                {/*    frameBorder="0"*/}
-                {/*    webkitallowfullscreen*/}
-                {/*    mozallowfullscreen*/}
-                {/*    allowFullScreen*/}
-                {/*></iframe>*/}
-                <iframe
-                    tabIndex="-1"
-                    title="Pokuonglao Splash Video"
-                    src="https://player.vimeo.com/video/141187410?background=1&autoplay=1&loop=1&byline=0&title=0"
-                    frameBorder="0"
-                    webkitallowfullscreen
-                    mozallowfullscreen
-                    allowFullScreen>
+            <div id="bgvid" className={`video-container ${showVideo ? 'visible' : ''}`}> 
+                    <iframe title="Pokuonglao Splash Video"
+                        src="https://player.vimeo.com/video/141187410?background=1&autoplay=1&loop=1&byline=0&title=0"
+                    >
                 </iframe>
                 
             </div>
