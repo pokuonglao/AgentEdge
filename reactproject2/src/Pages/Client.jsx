@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/Pages/Client.css';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 
 function Clients() {
@@ -8,6 +9,7 @@ function Clients() {
     const [totalPages, setTotalPages] = useState(1);
     const [searchKeyword, setSearchKeyword] = useState('');
     const [clients, setClients] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         // Fetch total pages on component mount
@@ -20,33 +22,25 @@ function Clients() {
     }, [pageNumber, pageSize]);
 
     const fetchTotalPages = (size) => {
-        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getTotalPages?pageSize=${size}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-            
-        })
+        setLoading(true); // Set loading state to true
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getTotalPages?pageSize=${size}`)
             .then(response => response.json())
             .then(data => {
                 setTotalPages(data.totalPages);
             })
-            .catch(error => console.error('Error fetching total pages:', error));
+            .catch(error => console.error('Error fetching total pages:', error))
+            .finally(() => setLoading(false)); // Set loading state to false
     };
 
     const fetchClients = (page, size) => {
-        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getAllClients?pageNumber=${page}&pageSize=${size}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
- 
-        })
+        setLoading(true); // Set loading state to true
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getAllClients?pageNumber=${page}&pageSize=${size}`)
             .then(response => response.json())
             .then(data => {
                 setClients(data);
             })
-            .catch(error => console.error('Error fetching clients:', error));
+            .catch(error => console.error('Error fetching clients:', error))
+            .finally(() => setLoading(false)); // Set loading state to false
     };
 
     const searchClients = () => {
@@ -68,6 +62,9 @@ function Clients() {
         <div className="client-container">
             <h2>Clients</h2>
             <div>
+                {/* Loading spinner or message */}
+                {loading && <LoadingSpinner />}
+                {/* Your existing JSX */}
                 Items per page:
                 <select value={pageSize} onChange={(e) => setPageSize(parseInt(e.target.value))}>
                     <option value={5}>5</option>
