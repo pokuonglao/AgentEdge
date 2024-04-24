@@ -20,7 +20,13 @@ function Clients() {
     }, [pageNumber, pageSize]);
 
     const fetchTotalPages = (size) => {
-        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getTotalPages?pageSize=${size}`)
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getTotalPages?pageSize=${size}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ size })
+        })
             .then(response => response.json())
             .then(data => {
                 setTotalPages(data.totalPages);
@@ -29,7 +35,13 @@ function Clients() {
     };
 
     const fetchClients = (page, size) => {
-        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getAllClients?pageNumber=${page}&pageSize=${size}`)
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getAllClients?pageNumber=${page}&pageSize=${size}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ page, size })
+        })
             .then(response => response.json())
             .then(data => {
                 setClients(data);
@@ -38,7 +50,13 @@ function Clients() {
     };
 
     const searchClients = () => {
-        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/search?keyword=${searchKeyword}`)
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/search?keyword=${searchKeyword}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({  })
+        })
             .then(response => response.json())
             .then(data => {
                 setClients(data);
