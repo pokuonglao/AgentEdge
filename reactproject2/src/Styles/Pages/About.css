@@ -229,8 +229,9 @@ header {
 
     /* Adjust image size for smaller screens */
     img.fit {
-        width: 50%; /* Reduce image width */
+        width: 100%; /* Reduce image width */
         height: auto; /* Maintain aspect ratio */
+        
     }
 
     /* Adjust header layout for smaller screens */

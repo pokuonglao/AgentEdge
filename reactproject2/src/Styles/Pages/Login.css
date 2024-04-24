@@ -34,3 +34,47 @@
         .login-form button:hover {
             background-color: #0056b3;
         }
+
+/* Add media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .top-portion {
+        background-color: black;
+        padding: 20px; /* Add padding for better spacing */
+    }
+
+    .login-form {
+        width: 90%; /* Adjust width for smaller screens */
+        max-width: 400px; /* Limit maximum width */
+        margin: 0 auto;
+        margin-top: 100px; /* Adjust top margin for smaller screens */
+        padding: 20px; /* Adjust padding for better spacing */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        .login-form button {
+            width: 100%; /* Make button full width */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+            .login-form button:hover {
+                background-color: #0056b3;
+            }
+
+}
