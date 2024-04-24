@@ -20,7 +20,7 @@ function Clients() {
     }, [pageNumber, pageSize]);
 
     const fetchTotalPages = (size) => {
-        fetch(`http://ec2-54-183-197-75.us-west-1.compute.amazonaws.com/Client/getTotalPages?pageSize=${size}`)
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getTotalPages?pageSize=${size}`)
             .then(response => response.json())
             .then(data => {
                 setTotalPages(data.totalPages);
@@ -29,7 +29,7 @@ function Clients() {
     };
 
     const fetchClients = (page, size) => {
-        fetch(`http://ec2-54-183-197-75.us-west-1.compute.amazonaws.com/Client/getAllClients?pageNumber=${page}&pageSize=${size}`)
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/getAllClients?pageNumber=${page}&pageSize=${size}`)
             .then(response => response.json())
             .then(data => {
                 setClients(data);
@@ -38,7 +38,7 @@ function Clients() {
     };
 
     const searchClients = () => {
-        fetch(`http://ec2-54-183-197-75.us-west-1.compute.amazonaws.com/Client/search?keyword=${searchKeyword}`)
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/search?keyword=${searchKeyword}`)
             .then(response => response.json())
             .then(data => {
                 setClients(data);
