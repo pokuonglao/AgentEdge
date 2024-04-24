@@ -140,3 +140,51 @@ a#logo {
     right: 0;
     transform: translateX(0);
 }
+
+/* Add media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    #header {
+        padding: 10px 20px; /* Adjust padding for smaller screens */
+    }
+
+        #header .wrapper {
+            padding: 10px 0; /* Adjust padding for smaller screens */
+        }
+
+        #header ul.menu {
+            flex-wrap: wrap; /* Allow menu items to wrap on smaller screens */
+            justify-content: center; /* Center-align menu items */
+        }
+
+        #header .menu li {
+            margin: 0 10px; /* Add spacing between menu items */
+        }
+
+            #header .menu li a {
+                padding: 5px 10px; /* Adjust padding for smaller screens */
+            }
+
+                #header .menu li a span {
+                    display: none; /* Hide underline for menu items */
+                }
+
+        #header .menu .submenu_wrapper .submenu {
+            text-align: center; /* Center-align submenu items */
+            border: none; /* Remove border */
+        }
+
+    .has-submenu .submenu_wrapper {
+        position: static; /* Change position to static */
+        display: none; /* Hide submenu wrapper by default */
+    }
+
+    .has-submenu:hover .submenu_wrapper {
+        display: block; /* Show submenu wrapper on hover */
+    }
+
+        .has-submenu:hover .submenu_wrapper ul.submenu {
+            display: block; /* Show submenu on hover */
+            margin-top: 10px; /* Add margin to submenu */
+        }
+
+}

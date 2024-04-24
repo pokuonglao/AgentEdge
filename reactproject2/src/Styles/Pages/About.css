@@ -201,3 +201,41 @@ address {
 header {
     display: block;
 }
+
+/* Add media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    /* Adjust section wrapper padding for smaller screens */
+    .section .wrapper {
+        padding: 30px 20px; /* Reduce padding */
+    }
+
+        /* Reduce font size for smaller screens */
+        .section .wrapper p {
+            font-size: calc(12pt + .05vw); /* Decrease font size */
+        }
+
+    /* Adjust content split layout for smaller screens */
+    .content.split .left,
+    .content.split .right {
+        width: 100%; /* Set full width for smaller screens */
+        padding: 0; /* Remove padding */
+        text-align: center; /* Center-align content */
+    }
+
+    /* Reduce font size for user contact info on smaller screens */
+    #user-contact {
+        font-size: calc(8pt + .25vw); /* Decrease font size */
+    }
+
+    /* Adjust image size for smaller screens */
+    img.fit {
+        width: 50%; /* Reduce image width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Adjust header layout for smaller screens */
+    header {
+        text-align: center; /* Center-align header content */
+    }
+ 
+}
