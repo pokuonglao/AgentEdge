@@ -1,6 +1,6 @@
 import '../Styles/Pages/About.css';
 import Footer from '../Components/Footer';
-import profileImage from '../../public/profile.jpg';
+import profileImage from '../../public/profile-removebg-preview.png';
 
 
 const Pokuong = () => {
@@ -11,8 +11,8 @@ const Pokuong = () => {
                     <div id="stat-highlight">
                         <div className="stat">
                             <div className="statbox">
-                                <span className="count">1</span>
-                                <span className="label">Completed Marathon</span>
+                                {/*<span className="count">1</span>*/}
+                                {/*<span className="label">Completed Marathon</span>*/}
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,5 @@
-
+import React from 'react';
 import Vimeo from '../Components/Vimeo';
-
 
 
 

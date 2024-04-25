@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useRoutes } from "react-router-dom";
-import Home from './Pages/Home.jsx';
-import About from './Pages/About.jsx';
-import Login from './Pages/Login.jsx';
-import Client from './Pages/Client.jsx';
+import Home from '../Pages/Home';
+import About from '../Pages/About.jsx';
+import Login from '../Pages/Login.jsx';
+import Client from '../Pages/Client.jsx';
 
 function App2({ isAuthenticated, setIsAuthenticated }) {
     const routes = [

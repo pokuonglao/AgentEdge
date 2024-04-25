@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Nav from './Components/Nav.jsx';
-import App2 from './App2.jsx';
+import Nav from './Nav.jsx';
+import SecureRouting from './SecureRouting.jsx';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -9,7 +9,7 @@ function App() {
     return (
         <Router>
             <Nav isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
-            <App2 isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
+            <SecureRouting isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
         </Router>
     );
 }

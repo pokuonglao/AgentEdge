@@ -24,7 +24,7 @@ const Vimeo = () => {
                 <div id="key-phrases">
                     <div>Software Developer</div>
                     <div>Real Estate Agent</div>
-                    <div>Marathon Runner</div>
+                    {/*<div>Marathon Runner</div>*/}
                 </div>
             </div>
             <div id="bgvid" className={`video-container ${showVideo ? 'visible' : ''}`}> 
