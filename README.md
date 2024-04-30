@@ -15,22 +15,10 @@ AgentEdge is a dynamic real estate platform built with React that aims to revolu
 - **Frontend**:
   - React
   - React Router
-  - Redux (optional, for state management)
-  - Bootstrap (or any CSS framework of your choice)
-  - Axios (for API requests)
   
 - **Backend**:
-  - Node.js (optional, if using server-side rendering or building APIs)
-  - Express (if building APIs)
-  - MongoDB or PostgreSQL (for storing property data)
+  - ASP.NET Core
   
 - **Deployment**:
   - AWS Amplify (for frontend deployment)
-  - Heroku or AWS EC2 (for backend deployment)
-  
-## Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/your-username/agent-edge.git
+  - AWS EC2 (for backend deployment)
