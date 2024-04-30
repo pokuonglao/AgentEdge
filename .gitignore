@@ -365,3 +365,17 @@ FodyWeavers.xsd
 # amplify
 .amplify
 amplifyconfiguration*
+
+appsettings.json
+.env
+database.yml
+
+build/
+dist/
+*.log
+
+.vscode/
+.idea/
+.DS_Store
+
+WebApplication1\WebApplication1\Utilities\PasswordHasher.cs
