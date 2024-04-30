@@ -7,10 +7,6 @@ appsettings.json
 .env
 database.yml
 
-build/
-dist/
-*.log
-
 .vscode/
 .idea/
 .DS_Store
