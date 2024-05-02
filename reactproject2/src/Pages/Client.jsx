@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../Styles/Pages/Client.css';
 import LoadingSpinner from '../Components/LoadingSpinner';
 
-
 function Clients() {
     const [pageSize, setPageSize] = useState(5);
     const [pageNumber, setPageNumber] = useState(1);
@@ -11,6 +10,19 @@ function Clients() {
     const [clients, setClients] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [showAddClient, setShowAddClient] = useState(false); // State variable to manage the visibility of "Add Client" window
+    const [newClientData, setNewClientData] = useState({
+        firstName: "",
+        lastName: "",
+        address: "",
+        city: "",
+        state: "",
+        zipcode: "",
+        phone: "",
+        email: ""
+    }); // State variable to store data of the new client
+    const [successMessage, setSuccessMessage] = useState('');
+
 
     useEffect(() => {
         // Fetch total pages on component mount
@@ -62,12 +74,88 @@ function Clients() {
             });
     };
 
+    const handleAddClient = () => {
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/addClient`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newClientData),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to add client');
+                }
+                setNewClientData({
+                    firstName: '',
+                    lastName: '',
+                    phone: '',
+                    email: '',
+                    address: '',
+                    city: '',
+                    state: '',
+                    zipcode: ''
+                });
+                // Close the "Add Client" window after successful addition
+                setShowAddClient(false);
+                // Fetch updated list of clients
+                fetchClients(pageNumber, pageSize);
+                // Show the success message
+                setSuccessMessage('Client successfully added!');
+                // Clear the success message after a few seconds
+                setTimeout(() => {
+                    setSuccessMessage('');
+                }, 3000); // Display for 3 seconds
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+    };
+
+    const handleDeleteClient = (id) => {
+        fetch(`https://d129impgfwqu0k.cloudfront.net/Client/deleteClient/${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to delete client');
+                }
+                // Update the clients list after successful deletion
+                fetchClients(pageNumber, pageSize);
+                setSuccessMessage('Client successfully deleted!');
+                setTimeout(() => {
+                    setSuccessMessage('');
+                }, 3000);
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+    };
+
     return (
         <div className="client-container">
             <h2>Clients</h2>
             <div>
                 {loading && <LoadingSpinner />}
                 {error && <p>Error: {error}</p>}
+                {successMessage && <p>{successMessage}</p>}
+                <button onClick={() => setShowAddClient(true)}>Add Client</button>
+            {showAddClient && (
+                <div className="add-client-window">
+                    {/* Form inputs for adding a new client */}
+                    <input type="text" placeholder="First Name" value={newClientData.firstName} onChange={(e) => setNewClientData({ ...newClientData, firstName: e.target.value })} />
+                        <input type="text" placeholder="Last Name" value={newClientData.lastName} onChange={(e) => setNewClientData({ ...newClientData, lastName: e.target.value })} />
+                        <input type="text" placeholder="Phone" value={newClientData.phone} onChange={(e) => setNewClientData({ ...newClientData, phone: e.target.value })} />
+                        <input type="text" placeholder="Email" value={newClientData.email} onChange={(e) => setNewClientData({ ...newClientData, email: e.target.value })} />
+                        <input type="text" placeholder="Address" value={newClientData.address} onChange={(e) => setNewClientData({ ...newClientData, address: e.target.value })} />
+                        <input type="text" placeholder="City" value={newClientData.city} onChange={(e) => setNewClientData({ ...newClientData, city: e.target.value })} />
+                        <input type="text" placeholder="State" value={newClientData.state} onChange={(e) => setNewClientData({ ...newClientData, state: e.target.value })} />
+                        <input type="text" placeholder="Zipcode" value={newClientData.zipcode} onChange={(e) => setNewClientData({ ...newClientData, zipcode: e.target.value })} />
+                        {/* Other input fields */}
+                    <button onClick={handleAddClient}>Submit</button>
+                    <button onClick={() => setShowAddClient(false)}>Cancel</button>
+                </div>
+            )}
                 Items per page:
                 <select value={pageSize} onChange={(e) => setPageSize(parseInt(e.target.value))}>
                     <option value={5}>5</option>
@@ -86,6 +174,7 @@ function Clients() {
                 <input type="text" value={searchKeyword} onChange={(e) => setSearchKeyword(e.target.value)} />
                 <button onClick={searchClients}>Search</button>
             </div>
+            
             <table className="client-table">
                 <thead>
                     <tr>
@@ -110,6 +199,7 @@ function Clients() {
                             <td>{client.city}</td>
                             <td>{client.state}</td>
                             <td>{client.zipcode}</td>
+                            <td><button onClick={() => handleDeleteClient(client.id)}>Delete</button></td> {/* Added delete button */}
                         </tr>
                     ))}
                 </tbody>

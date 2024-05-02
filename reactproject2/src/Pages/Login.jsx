@@ -1,4 +1,4 @@
-import React, { useState, } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import '../Styles/Pages/Login.css'; // Make sure this path is correct
 import PropTypes from 'prop-types';
@@ -8,6 +8,14 @@ const LoginForm = ({ setIsAuthenticated }) => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        // Check if user is already authenticated
+        if (localStorage.getItem('isAuthenticated') === 'true') {
+            setIsAuthenticated(true);
+            navigate('/client'); // Navigate to the protected page
+        }
+    }, [setIsAuthenticated, navigate]);
 
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -20,7 +28,7 @@ const LoginForm = ({ setIsAuthenticated }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         authenticate(username, password);
-        
+
     };
 
     const authenticate = (username, password) => {
@@ -35,6 +43,7 @@ const LoginForm = ({ setIsAuthenticated }) => {
                 if (!response.ok) {
                     throw new Error('Invalid username or password');
                 }
+                localStorage.setItem('isAuthenticated', 'true');
                 setIsAuthenticated(true);
                 navigate('/client'); // Navigate to the protected page
             })
@@ -61,6 +70,10 @@ const LoginForm = ({ setIsAuthenticated }) => {
                 />
                 <button type="submit">Login</button>
             </form>
+            <div className="hints"> {/* Add a div for hints */}
+                <p>Hint: username</p>
+                <p>Hint: password</p>
+            </div>
         </div>
     );
 };

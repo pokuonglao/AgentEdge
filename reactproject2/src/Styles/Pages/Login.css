@@ -5,7 +5,7 @@
 .login-form {
     width: 300px;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 200px;
     padding: 100px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -46,7 +46,7 @@
         width: 90%; /* Adjust width for smaller screens */
         max-width: 400px; /* Limit maximum width */
         margin: 0 auto;
-        margin-top: 100px; /* Adjust top margin for smaller screens */
+        margin-top: 200px; /* Adjust top margin for smaller screens */
         padding: 20px; /* Adjust padding for better spacing */
         border: 1px solid #ccc;
         border-radius: 5px;

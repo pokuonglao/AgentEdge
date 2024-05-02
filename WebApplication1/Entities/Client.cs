@@ -17,6 +17,7 @@ namespace WebApplication1.Entities
         public string Zipcode { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        //TODO: add birthday and implement business rule engine 
     }
 
 }

@@ -2,6 +2,7 @@
     max-width: 800px; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the container horizontally */
     padding: 20px; /* Add padding for spacing */
+    padding-top: 200px;
 }
 
 .client-table {
@@ -23,9 +24,6 @@
         background-color: #f2f2f2;
     }
 
-    .client-table tbody tr:hover {
-        background-color: #ddd;
-    }
 
     .client-table input[type="text"],
     .client-table select {
@@ -47,3 +45,44 @@
         .client-table button:hover {
             background-color: #45a049;
         }
+
+/* Responsive Styling */
+@media only screen and (max-width: 768px) {
+    .client-table thead {
+        display: none; /* Hide table header */
+    }
+
+    .client-table tbody,
+    .client-table tr,
+    .client-table td {
+        display: block; /* Change table and table row to block display */
+        width: 100%; /* Set full width */
+    }
+
+    .client-table td {
+        border: none; /* Remove borders */
+        border-bottom: 1px solid #ddd; /* Add bottom border */
+        position: relative; /* Position for button */
+        padding-left: 10%; /* Set padding for button */
+        
+    }
+
+    .client-table tr {
+        padding: 20px
+    }
+
+    .client-table td::before {
+        content: attr(data-label); /* Add label content */
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding: 8px;
+        font-weight: bold;
+    }
+
+        .client-table td:last-child::before {
+            content: ""; /* Hide label for last column */
+            
+        }
+
+}

@@ -3,7 +3,9 @@ import Footer from '../Components/Footer';
 import profileImage from '../../public/profile-removebg-preview.png';
 
 
+
 const Pokuong = () => {
+    
     return (
         <>
             <aside id="chris-hero" className="section black minhalf active">
