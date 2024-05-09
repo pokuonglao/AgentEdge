@@ -1,0 +1,98 @@
+/* Mls.css */
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top:200px;
+}
+
+input[type="text"],
+button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.property-listing {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.listing-hero {
+    position: relative;
+}
+
+.listing-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .image-gallery img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+.listing-banner {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.left {
+    margin-right: auto;
+    color: #fff;
+}
+
+.listing-status {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.listing-price {
+    font-size: 20px;
+}
+
+.listing-header {
+    margin-bottom: 10px;
+}
+
+.listing-title {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.listing-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .listing-details li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+        .listing-details li span {
+            text-transform: uppercase;
+        }
+
+.listing-description {
+    margin-bottom: 20px;
+}

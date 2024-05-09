@@ -4,11 +4,13 @@ import Home from '../Pages/Home';
 import About from '../Pages/About.jsx';
 import Login from '../Pages/Login.jsx';
 import Client from '../Pages/Client.jsx';
+import Mls from '../Pages/Mls.jsx';
 
-function App2({ isAuthenticated, setIsAuthenticated }) {
+function Route({ isAuthenticated, setIsAuthenticated }) {
     const routes = [
         { path: "/", element: <Home /> },
         { path: "/about/", element: <About /> },
+        { path: "/mls/", element: <Mls /> },
         { path: "/login/", element: <Login setIsAuthenticated={setIsAuthenticated} /> },
     ];
 
@@ -22,4 +24,4 @@ function App2({ isAuthenticated, setIsAuthenticated }) {
     return element;
 }
 
-export default App2;
+export default Route;

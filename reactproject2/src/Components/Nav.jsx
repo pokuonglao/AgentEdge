@@ -42,6 +42,11 @@ const Nav = ({ isAuthenticated, }) => {
                                 <span></span>
                             </a>
                         </li>
+                        <li>
+                            <a data-anchor="mls" href="/mls/">MLS
+                                <span></span>
+                            </a>
+                        </li>
                         {/* Other navigation items */}
                         <li className="private">
                             <a data-anchor="private" href="/login/" onClick={isAuthenticated ? handleLogout : null}>
