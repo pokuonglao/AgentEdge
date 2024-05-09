@@ -1,19 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8" />
-    <!--<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">-->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
-    <!--<link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">-->
     <link rel="manifest" href="/favicon_io/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content="https://pokuonglao.s3.amazonaws.com/Logo.jpg">
-    <meta name="twitter:image" content="https://pokuonglao.s3.amazonaws.com/Logo.jpg">
+    <meta property="og:title" content="Pokuong Lao" />
+    <meta property="og:description" content="Description of your website goes here" />
+    <meta property="og:image" content="https://pokuonglao.s3.us-east-1.amazonaws.com/Logo.jpg?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIDn2ghK29pXI%2F2C3RbWiJW4oA2UBikaBqvXU728LER9JAiAV%2B0I05v3v73TG0D5O3KEeCqixccpwAQ6UcXscXQYMkyrkAggfEAAaDDgwNjcyNDI3OTg1OSIMXsyGWUTaUe%2FNZdeDKsECJZco6uiOzSOhe5Beei0VzMvFo6LDOXHkuyXcf7hBawU7VkQmkQpRUUnUc05hHU3WNBx%2FgXakWapvof19AUg0qUPokor031kpxzajAxQ%2Bnw9g1BsYFIQ%2BZ4m6Zs6uzURLvE7dcM%2Fmt%2B92P8WNB0qi5NPHOlPwHW6RKJN0CuDPGL9S4evuOtTzS6HzOkeDbirEvuIaEP4z1dB0gky6XqdUhi8DqeT2sowtVw9mMls7O%2FP4zg2ER%2FXCx5lTQOjmWIBWXaGpWTpBYt0X89IdQJVDVzKrwp9oAgtTx6Ge3%2BEUIiuw3SLwWlpH2SzPOxkAHlwyG8XlUqWJu108yyOvT0ia11VogYt3Oen6Koba7K8uehQVDVrsSTPklIjoyVfnm%2FiH%2BzUrvlpiPJQa0qvXuc9cD5Pclxp0wAPEVAuNdy4yyz4jMP6V9LEGOrQCOULsU2nza5I%2FbCMZzdPteZG5GpucQoqbc19%2BSkSofY5oT12slXHrTCQ9mVp43CpEbk%2F%2BtDSOIn6%2Baqvxb9DJLfDx53liKmrYyCacCHnMU9v9r2TJIq7XF5hU2H7BBaLc8ruH1zd5alI9QPlJnQw6EwHrJKN3XanFMSKjklRbs2i9iLjsUYhVKw5nCE42fAkAa4BNmagaLJbr822vwHKWLO6zKNOBVHWSRI24sTsNd%2Bt%2BN7OWW5ELdScmVSvuT3D8Qo17um%2F0SzaqbKc57%2Fw0fkr1tUA6B54EdwdWPwWWj5dilg7VQ%2BCIj94DSN5%2FTUC4ofvJJjCQLdjkoXoWlf%2BJxlOvXG7%2BrE56aGsFITq27lfqiIB9PdDVUOf6165rn7tZAxOO%2BgbggwcZvjj349NkN4mUEVE%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240509T222415Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIA3XVEDTYZ6XZNBE6N%2F20240509%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=7262a40f4de30d1b5018196a6f680bad66ae745ccde22c07e93be8ea85bca041" />
+    <meta name="twitter:title" content="Pokuong Lao" />
+    <meta name="twitter:description" content="Description of your website goes here" />
+    <meta name="twitter:image" content="https://pokuonglao.s3.us-east-1.amazonaws.com/Logo.jpg?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIDn2ghK29pXI%2F2C3RbWiJW4oA2UBikaBqvXU728LER9JAiAV%2B0I05v3v73TG0D5O3KEeCqixccpwAQ6UcXscXQYMkyrkAggfEAAaDDgwNjcyNDI3OTg1OSIMXsyGWUTaUe%2FNZdeDKsECJZco6uiOzSOhe5Beei0VzMvFo6LDOXHkuyXcf7hBawU7VkQmkQpRUUnUc05hHU3WNBx%2FgXakWapvof19AUg0qUPokor031kpxzajAxQ%2Bnw9g1BsYFIQ%2BZ4m6Zs6uzURLvE7dcM%2Fmt%2B92P8WNB0qi5NPHOlPwHW6RKJN0CuDPGL9S4evuOtTzS6HzOkeDbirEvuIaEP4z1dB0gky6XqdUhi8DqeT2sowtVw9mMls7O%2FP4zg2ER%2FXCx5lTQOjmWIBWXaGpWTpBYt0X89IdQJVDVzKrwp9oAgtTx6Ge3%2BEUIiuw3SLwWlpH2SzPOxkAHlwyG8XlUqWJu108yyOvT0ia11VogYt3Oen6Koba7K8uehQVDVrsSTPklIjoyVfnm%2FiH%2BzUrvlpiPJQa0qvXuc9cD5Pclxp0wAPEVAuNdy4yyz4jMP6V9LEGOrQCOULsU2nza5I%2FbCMZzdPteZG5GpucQoqbc19%2BSkSofY5oT12slXHrTCQ9mVp43CpEbk%2F%2BtDSOIn6%2Baqvxb9DJLfDx53liKmrYyCacCHnMU9v9r2TJIq7XF5hU2H7BBaLc8ruH1zd5alI9QPlJnQw6EwHrJKN3XanFMSKjklRbs2i9iLjsUYhVKw5nCE42fAkAa4BNmagaLJbr822vwHKWLO6zKNOBVHWSRI24sTsNd%2Bt%2BN7OWW5ELdScmVSvuT3D8Qo17um%2F0SzaqbKc57%2Fw0fkr1tUA6B54EdwdWPwWWj5dilg7VQ%2BCIj94DSN5%2FTUC4ofvJJjCQLdjkoXoWlf%2BJxlOvXG7%2BrE56aGsFITq27lfqiIB9PdDVUOf6165rn7tZAxOO%2BgbggwcZvjj349NkN4mUEVE%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240509T222415Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIA3XVEDTYZ6XZNBE6N%2F20240509%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=7262a40f4de30d1b5018196a6f680bad66ae745ccde22c07e93be8ea85bca041" />
     <title>Pokuong Lao</title>
 </head>
-  <body>
+<body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+</body>
 </html>
