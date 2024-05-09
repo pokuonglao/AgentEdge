@@ -57,7 +57,7 @@ const Mls = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="top-container">
                 <input
                     type="text"
                     value={mlsId}
@@ -72,8 +72,6 @@ const Mls = () => {
                     <div key={property.property.id} className="property-listing">
                         <div className="listing-hero">
                             <div className="listing-carousel">
-                                <div className="nav-prev"></div>
-                                <div className="nav-next"></div>
                                 <div className="container">
                                     <div className="image-gallery">
                                         {property.photos.map((photo, index) => (
