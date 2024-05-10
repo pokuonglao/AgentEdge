@@ -173,6 +173,7 @@ address {
     margin-top: 25px;
     font-size: calc(10pt + .25vw);
     line-height: 1.4em;
+    color: #000a0c;
 }
 
     #user-contact a {
