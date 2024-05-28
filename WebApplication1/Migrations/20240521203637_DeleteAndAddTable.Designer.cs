@@ -11,8 +11,8 @@ using WebApplication1;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240423224026_rds")]
-    partial class rds
+    [Migration("20240521203637_DeleteAndAddTable")]
+    partial class DeleteAndAddTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

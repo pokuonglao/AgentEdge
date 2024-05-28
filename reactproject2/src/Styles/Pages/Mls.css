@@ -4,7 +4,7 @@
     max-width: 960px;
     margin: 0 auto;
     padding: 20px;
-    padding-top:200px;
+    padding-top: 200px;
 }
 
 input[type="text"],
@@ -95,4 +95,68 @@ button {
 
 .listing-description {
     margin-bottom: 20px;
+}
+
+/* New styles for the 3x4 grid layout */
+.property-browser {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.listing-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+    .listing-card img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+.listing-thumb {
+    position: relative;
+}
+
+.listing-status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.listing_info {
+    margin-top: auto;
+    text-align: center;
+}
+
+.listing_address {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.listing_citystate {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.combo_price {
+    font-size: 18px;
+    color: #000;
 }

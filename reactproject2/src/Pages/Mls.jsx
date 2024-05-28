@@ -1,24 +1,31 @@
-// Mls.js
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Styles/Pages/Mls.css';
 import Footer from '../Components/Footer';
 
 const Mls = () => {
     const [mlsId, setMlsId] = useState('');
     const [propertyList, setPropertyList] = useState([]);
+    const [activeListings, setActiveListings] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+
+    const username = 'simplyrets';
+    const password = 'simplyrets';
+
+    useEffect(() => {
+        fetchActiveListings();
+    }, []);
 
     const handleInputChange = (event) => {
         setMlsId(event.target.value);
     };
 
-    const username = 'simplyrets';
-    const password = 'simplyrets';
-
     const fetchMls = () => {
-        if (!mlsId) return; // Don't fetch if MLS ID is empty
+        if (!mlsId) {
+            setError('Please enter an MLS ID.');
+            return;
+        }
+
         setLoading(true);
         fetch(`https://api.simplyrets.com/properties/${mlsId}`, {
             headers: {
@@ -32,7 +39,6 @@ const Mls = () => {
                 return response.json();
             })
             .then(data => {
-                // Format price
                 const formattedProperty = {
                     ...data,
                     listPrice: formatPrice(data.listPrice)
@@ -47,7 +53,34 @@ const Mls = () => {
             .finally(() => setLoading(false));
     };
 
-    // Function to format price
+    const fetchActiveListings = () => {
+        setLoading(true);
+        fetch('https://api.simplyrets.com/properties?status=Active', {
+            headers: {
+                Authorization: 'Basic ' + btoa(username + ':' + password)
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch active listings');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const formattedProperties = data.map(property => ({
+                    ...property,
+                    listPrice: formatPrice(property.listPrice)
+                }));
+                setActiveListings(formattedProperties);
+                setError('');
+            })
+            .catch(error => {
+                console.error('Error fetching active listings:', error);
+                setError('Failed to fetch active listings. Please try again.');
+            })
+            .finally(() => setLoading(false));
+    };
+
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -64,10 +97,9 @@ const Mls = () => {
                     onChange={handleInputChange}
                     placeholder="Enter MLS ID"
                 />
-                <p>Enter 1005252</p>
                 <button onClick={fetchMls}>Fetch MLS</button>
                 {loading && <p>Loading...</p>}
-                {error && <p>{error}</p>}
+                {error && <p className="error">{error}</p>}
                 {propertyList.map(property => (
                     <div key={property.property.id} className="property-listing">
                         <div className="listing-hero">
@@ -101,6 +133,36 @@ const Mls = () => {
                     </div>
                 ))}
             </div>
+
+            <div className="property-browser">
+                <div className="wrapper">
+                    <header>
+                        <h1 className="screen-reader-text"></h1>
+                    </header>
+                    <div className="card_container">
+                        {activeListings.map((property, index) => (
+                            <div key={index} className="listing-card">
+                                <div className="thumb listing-thumb">
+                                    <div className="image_container">
+                                        <img src={property.photos[0]} alt={`Photo of ${property.address.full}`} />
+                                    </div>
+                                    <div className="listing_status active for-sale-lease">
+                                        <span>For Sale</span>
+                                    </div>
+                                </div>
+                                <div className="listing_info">
+                                    <div className="listing_id">Listing ID: {property.listingId}</div>
+                                    <div className="listing_address">{property.address.full}</div>
+                                    <div className="listing_citystate">{property.address.city}, {property.address.state}</div>
+                                    <div className="combo_price">{property.listPrice}</div>
+                                </div>
+                            </div>
+                        ))}
+
+                    </div>
+                </div>
+            </div>
+
             <Footer />
         </>
     );
