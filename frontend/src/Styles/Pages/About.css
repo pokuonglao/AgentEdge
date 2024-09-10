@@ -1,0 +1,89 @@
+/* General Section Styling */
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px 0;
+    background-color: #f5f5f5; /* Light background for contrast */
+    padding-top: 200px;
+}
+
+.section.black {
+    background-color: #000;
+    color: #fff;
+    font-size: xx-large;
+}
+
+.section.white {
+    background-color:#333333;
+    color: #333;
+}
+
+/* Content Wrapping */
+.content.split {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Profile Image */
+#user-image img {
+    border-radius: 50%; /* Circular image */
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Typography */
+h1 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: white;
+}
+
+/* Contact Info Styling */
+#user-contact {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+#user-contact a {
+    color: #0073e6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#user-contact a:hover {
+    color: #0056b3;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .content.split {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #user-image img {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}

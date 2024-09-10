@@ -1,0 +1,16 @@
+# amplify
+node_modules
+.amplify
+amplifyconfiguration*
+
+appsettings.json
+.env
+database.yml
+
+.vscode/
+.idea/
+.DS_Store
+
+Utilities\PasswordHasher.cs
+appsettings.json
+

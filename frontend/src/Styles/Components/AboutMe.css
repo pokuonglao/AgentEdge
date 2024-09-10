@@ -1,0 +1,104 @@
+.about-section {
+    width: 100%;
+    padding-top: 100px;
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-section__wrapper {
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    gap: 40px;
+}
+
+.about-section__left {
+    width: 30%;
+}
+
+
+.about-section__right {
+    width: 65%;
+}
+
+/* Thumbnail Image Placeholder */
+.about-section__thumb {
+    width: 100%;
+    position: relative;
+    padding-top: 133.33%; /* Aspect ratio for image (4:3) */
+    background-color: #e0e0e0; /* Gray placeholder background */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.about-section__thumb:hover {
+    transform: scale(1.05);
+}
+
+.about-section__right {
+    width: 65%;
+}
+
+.about-section__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.about-section__text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    line-height: 1.6;
+}
+
+.about-section__contact {
+    margin-top: 20px;
+}
+
+.about-section__phone,
+.about-section__email {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: white; /* Subtle color for contact details */
+    margin-bottom: 5px;
+}
+
+.about-section__email {
+    text-decoration: none;
+    color: white; /* Neutral link color */
+    transition: color 0.3s ease;
+}
+
+.about-section__email:hover {
+    color: white; /* Subtle hover effect */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-section__content {
+        flex-direction: column;
+    }
+
+    .about-section__left, .about-section__right {
+        width: 100%;
+    }
+
+    .about-section__title {
+        font-size: 1.5rem;
+    }
+
+    .about-section__text {
+        font-size: 1rem;
+    }
+}
