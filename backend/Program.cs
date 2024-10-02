@@ -20,13 +20,15 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontendAndLocalhost", policy =>
     {
         policy.WithOrigins(
-            "https://master.dfib8zt44au7z.amplifyapp.com", // Your frontend URL on AWS Amplify
+            "https://master.dfib8zt44au7z.amplifyapp.com",
             "http://localhost:5173",
             "http://localhost:5000",
-            "https://www.pokuonglao.com"// Your localhost URL with port
+            "https://www.pokuonglao.com",
+            "https://d129impgfwqu0k.cloudfront.net"
         )
         .AllowAnyHeader()
-        .AllowAnyMethod();
+        .AllowAnyMethod()
+        .AllowCredentials();
     });
 });
 

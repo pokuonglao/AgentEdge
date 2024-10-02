@@ -1,15 +1,12 @@
 .section.full {
     position: relative; /* Change from absolute to relative to keep the flow */
-    height: 100vh; /* Full viewport height for the landing section */
+    height: 60vh; /* Full viewport height for the landing section */
     overflow: hidden;
     max-width: 100%;
-    background-color: black;
+    background-color: #333333;
 }
 
-
-
 #welcome.section .wrapper #company-name {
-    top: 0;
     font-size: calc(36pt + 1.5vw);
     text-transform: uppercase;
     letter-spacing: -2px;
