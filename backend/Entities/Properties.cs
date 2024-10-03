@@ -1,3 +1,5 @@
+
+
 namespace WebApplication1.Entities
 {
     public class Properties
@@ -13,6 +15,8 @@ namespace WebApplication1.Entities
         public int SquareFeet {get;set;}
         public int LotSize {get;set;}
         public List<string> ImageUrls { get; set; }
+        
+        // public IFormFile? ImageFile {get; set;}
 
     }
 }

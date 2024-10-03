@@ -366,4 +366,5 @@ FodyWeavers.xsd
 .amplify
 amplifyconfiguration*
 
-
+package-lock.json
+package.json
