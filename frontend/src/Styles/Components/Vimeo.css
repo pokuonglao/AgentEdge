@@ -1,6 +1,6 @@
 .section.full {
     position: relative; /* Change from absolute to relative to keep the flow */
-    height: 60vh; /* Full viewport height for the landing section */
+    height: 50vh; /* Full viewport height for the landing section */
     overflow: hidden;
     max-width: 100%;
     background-color: #333333;
